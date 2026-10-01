@@ -1,0 +1,101 @@
+## Visual Studio / .NET .gitignore
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (MonoDevelop / Xamarin Studio)
+*.userprefs
+
+# Mono auto generated files
+mono_crash.*
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio 2015/2017/2019/2022 cache/options directory
+.vs/
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+
+# Roslyn cache directories
+*.ide/
+
+# ASP.NET / IIS Express
+.vs/**/config/applicationhost.config
+[Aa]pp_[Dd]ata/jobs/
+[Aa]pp_[Dd]ata/logs/
+
+# SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+# Click-Once directory
+publish/
+
+# Publish Web Output
+*.[Pp]ublish.xml
+*.azurePubxml
+*.pubxml
+*.publishsettings
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/repositories.config
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+
+# Microsoft Azure Web App publish settings.
+PublishScripts/
+
+# Microsoft Azure Mobile Services application
+App_Data/service.log
+
+# Microsoft Azure Express / Storage emulator
+[Tt]est[Rr]esults/
+*.azurestorage
+
+# Node / Web resources (if any)
+node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Rider / IntelliJ / VS Code
+.idea/
+.vscode/
+*.swp
+*~

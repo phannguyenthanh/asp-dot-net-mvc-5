@@ -1,0 +1,49 @@
+﻿@model project5.Models.Client
+
+@{
+    ViewBag.Title = "Chi tiết";
+    ViewBag.Name = "Client";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_edit.cshtml";
+}
+
+
+
+
+
+
+<h2>@ViewBag.Name</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createtime)
+        </dd>
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
+

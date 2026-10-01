@@ -1,0 +1,60 @@
+﻿@model project5.Models.Client
+
+@{
+    ViewBag.Title = "Xoá";
+    ViewBag.Name = "Client";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_edit.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+<h2>@ViewBag.Name</h2>
+
+<h3>Bạn có muốn xoá bảng ghi này không?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createtime)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

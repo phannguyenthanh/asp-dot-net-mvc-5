@@ -1,0 +1,82 @@
+﻿@model project5.Models.Order
+
+@{
+    ViewBag.Title = "Xoá";
+    ViewBag.Name = "Đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_edit.cshtml";
+}
+
+<h2>@ViewBag.Name</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+ 
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Product.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Product.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Transaction.First_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Transaction.First_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sale)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sale)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Receive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receive)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Createtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Createtime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<project5.Models.Product>
+@{
+
+
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+
+}
+@ViewBag.t
+<div class="content-top">
+    <h1>Sản phẩm mới nhất</h1>
+    <div class='content - top1'>
+        @{
+            int count = 0;
+            ViewBag.opdiv = "\"<div class='content - top1'>\"";
+            ViewBag.enddiv = " \"<div class='clearfix'> </div> </div >\" ";
+
+        }
+
+        @foreach (var i in Model)
+        {
+
+
+
+
+
+
+
+
+            <div class="col-md-3 col-md2" style="margin-top:100px">
+                <div class="col-md1 simpleCart_shelfItem" style="height:350px;">
+                    <a href="@Url.Action("index","Details",new{id = i.Id})">
+                        <img class="img-responsive" src="@i.Image" height="207" alt="" />
+                    </a>
+                    <h3><a href="@Url.Action("index","Details",new{id = i.Id})">
+                        @{ 
+                            string name = i.Name;
+                        }
+                        @if(i.Name.Length > 30)
+                        {
+                            @name.Substring(0,30);
+                            <span>...</span>
+                        }
+                        else
+                        {
+                            @i.Name;
+                        }
+                     </a></h3>
+                    <div class="price">
+                        <h5 class="item_price">@i.Price.Value.ToString("N0")đ</h5>
+                        <a href="@Url.Action("AddCart","Cart" , new{IdPro = i.Id , Quantity = 1})" class="item_add">Thêm</a>
+                        <div class="clearfix"> </div>
+                    </div>
+
+                </div>
+            </div>
+
+        }
+
+
+
+        <div class='clearfix'> </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    </div>

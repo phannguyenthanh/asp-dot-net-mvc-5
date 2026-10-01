@@ -1,0 +1,41 @@
+﻿@model IEnumerable<project5.Models.Category>
+<ul class="menu-drop">
+    <li class="item1">
+        <a href="#">Men </a>
+        <ul class="cute">
+          
+            @foreach (var i in Model)
+            {
+                if (i.Sex.ToString() == "Nam" || i.Sex == project5.Models.sexxx.Nam_và_Nữ)
+                {
+                    <li>
+                        @*<a href="@Url.Action("Index","Category", new( Id = i.Id))">@i.Name</a*>*@
+
+                        <a href="@Url.Action("Index","Category", new {Id= i.Id })">@i.Name</a>
+
+                    </li>
+                }
+            }
+
+
+        </ul>
+    </li>
+    <li class="item2">
+        <a href="#">Women </a>
+        <ul class="cute">
+            @foreach (var i in Model)
+            {
+                if (i.Sex.ToString() == "Nữ" || i.Sex == project5.Models.sexxx.Nam_và_Nữ)
+                {
+                    <li>
+                        @*<a href="@Url.Action("Index","Category", new( Id = i.Id))">@i.Name</a*>*@
+
+                        <a href="@Url.Action("Index","Category", new {Id= i.Id })">@i.Name</a>
+
+                    </li>
+                }
+            }
+        </ul>
+    </li>
+   
+</ul>

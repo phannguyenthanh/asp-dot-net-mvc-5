@@ -1,0 +1,35 @@
+﻿
+    <div id="small-dialog" class="mfp-hide">
+        <div class="search-top">
+            <div class="login">
+                @using (Html.BeginForm("Seach", "Home", FormMethod.Get))
+                {
+          
+                    <input type="submit" value="">
+                    <input type="text" class="input_seach" name="character" placeholder="Nhập tên sản phẩm ..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+
+                }
+
+            </div>
+            <span id="aller" style="color:red;"></span>
+            <p>	Shopping</p>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $(".search-top div form").submit(function () {
+                var seach = $.trim($('.input_seach').val());
+                var flag = true;
+                if (seach == "") {
+                    $("#aller").text("Hãy nhập tên sản phẩm bạn cần tìm !");
+                    flag = false;
+                }
+                else {
+                    $("#aller").text("");
+                }
+                return flag;
+            })
+        })
+
+    </script>
+

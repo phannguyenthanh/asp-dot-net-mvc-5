@@ -1,0 +1,44 @@
+﻿@model project5.Models.User
+
+@{
+    ViewBag.Title = "Index";
+    Layout ="~/Areas/Admin/Views/Shared/_Layout_Login.cshtml";
+}
+
+
+            @using (Html.BeginForm("Clogin", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="text-danger">
+                        
+                </div>
+                        
+                <div class="form-group has-feedback">
+                            
+                    @Html.TextBoxFor(Model=>Model.Email,new {@class= "form-control", @placeholder = "Email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>      
+                <div class="form-group has-feedback">
+                            
+                    @Html.PasswordFor(Model => Model.Passwold, new { @class = "form-control", @placeholder = "Passwold" })
+                    @Html.ValidationMessageFor(model => model.Passwold, "", new { @class = "text-danger" })
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>       
+                <div class="row">
+                    <div class="col-xs-8">
+                        <div class="checkbox icheck">
+                            <label>
+                                <input type="checkbox" > Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng Nhập</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            }
+            

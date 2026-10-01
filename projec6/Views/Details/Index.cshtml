@@ -1,0 +1,95 @@
+﻿@model project5.Models.Product
+@{
+    ViewBag.idcategory = Model.IdCategory;
+    ViewBag.idproduc = Model.Id;
+    ViewBag.Title = "Chi tiết sản phẩm";
+    Layout = "~/Views/Shared/_Layout_details.cshtml";
+
+}
+
+<div class="col-md-5 grid">
+    <div class="flexslider">
+        <ul class="slides">
+            <li data-thumb="@Model.Image)">
+                <div class="thumb-image"> <img src="@Model.Image" data-imagezoom="true" class="img-responsive"> </div>
+            </li>
+            @*<li data-thumb="/Content/Web/images/si1.jpg">
+                <div class="thumb-image"> <img src="/Content/Web/images/si1.jpg" data-imagezoom="true" class="img-responsive"> </div>
+            </li>
+            <li data-thumb="/Content/Web/images/si2.jpg">
+                <div class="thumb-image"> <img src="/Content/Web/images/si2.jpg" data-imagezoom="true" class="img-responsive"> </div>
+            </li>*@
+        </ul>
+    </div>
+</div>
+<div class="col-md-7 single-top-in">
+    <div class="single-para simpleCart_shelfItem">
+        <h1>@Model.Name</h1>
+        <p>@*Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.*@</p>
+        <div class="star-on">
+            @*<ul>
+                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-star"> </i></a></li>
+            </ul>*@
+            <div class="review">
+                <a href="#"> @Model._View reviews </a>
+                @*/  *@
+                @*<a href="#">  Write a review</a>*@
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+
+        <label class="add-to item_price">@Model.Price.Value.ToString("N0") đ</label>
+
+        <div class="available">
+            <h6>Thông tin :</h6>
+            <ul>
+
+                <li>
+                    Cỡ:<span>@Model.Size</span>
+                    @*<select>
+            <option>Large</option>
+            <option>Medium</option>
+            <option>small</option>
+            <option>Large</option>
+            <option>small</option>
+        </select>*@
+                </li>
+                <li>
+                    Màu:<span>@Model.Color</span>
+                    @*<select>
+            <option>U.S.Dollar</option>
+            <option>Euro</option>
+        </select>*@
+                </li>
+            </ul>
+        </div>
+        <a href="@Url.Action("AddCart","Cart" , new{IdPro = Model.Id , Quantity = 1})" class="cart item_add">Thêm vào giỏ hàng</a>
+    </div>
+</div>
+
+
+<div class="col-md-12">
+    <hr />
+    <h1 style="font-size: 1.5em;
+    color: #52D0C4;
+    line-height: 1.5em;
+    font-family: 'OleoScript-Regular';
+    margin: 100px 0;
+    ">
+        @Model.Title)
+    </h1>
+    <div>
+        @*@Model.Tcontent*@
+        @Html.Raw(Model.Tcontent)
+        @Html.Raw("<div class=\"resource-row\"> ahihi</div>")
+    </div>
+    <hr />
+
+
+
+</div>
+

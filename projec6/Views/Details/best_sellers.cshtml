@@ -1,0 +1,20 @@
+﻿@model IEnumerable<project5.Models.Product>
+<div class="product-bottom">
+    <h3 class="cate">Best Sellers</h3>
+    @foreach (var i in Model)
+    {
+        <div class="product-go">
+            <div class=" fashion-grid">
+                <a href="@Url.Action("Index", "Details", new {id = i.Id})"><img class="img-responsive " src="@i.Image" alt=""></a>
+            </div>
+            <div class=" fashion-grid1">
+                <h6 class="best2"><a href="@Url.Action("Index", "Details", new {id = i.Id})">@i.Name  </a></h6>
+                <span class=" price-in1"> @i.Price.Value.ToString("N0")</span>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    }
+
+
+
+</div>

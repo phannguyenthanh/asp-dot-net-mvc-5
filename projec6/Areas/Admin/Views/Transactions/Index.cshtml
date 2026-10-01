@@ -1,0 +1,153 @@
+﻿@model IEnumerable<project5.Models.Transaction>
+
+@{
+    ViewBag.Title = "Danh sách";
+    ViewBag.Name = "Giao dịch";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_list.cshtml";
+}
+
+
+
+
+
+
+<h2>@ViewBag.Name </h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+
+<div class="row">
+    <div class="col-xs-12">
+
+        <!-- /.box -->
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Data Table With Full Features</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="example1" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Pay.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdUser)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First_name)
+
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Security)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Createtime)
+                            </th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Pay.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdUser)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.First_name)
+                                @Html.DisplayFor(modelItem => item.Last_name)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Email)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Phone)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Address)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Security)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Createtime)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </td>
+                        </tr>
+                        }
+
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Pay.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IdUser)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.First_name)
+
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Security)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Createtime)
+                            </th>
+                            <th>Công cụ</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+        <!-- /.box -->
+    </div>
+    <!-- /.col -->
+</div>
+
+
+

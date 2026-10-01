@@ -1,0 +1,198 @@
+﻿@model List<projec6.Cart.ItemCart>
+
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    float total_payment = 0;
+}
+<style>
+ 
+
+     
+
+    .form_paymant form label {
+        font-family: 'OleoScript-Regular';
+        font-size: 1.2em;
+        color: lightsteelblue;
+    }
+
+    .form_paymant form input {
+        height: 33px;
+    }
+</style>
+<div class="check-out payment">
+    <h1>Thanh toán</h1>
+    <div class="col-md-6 form_paymant">
+        @Html.Action("Form_pay", "Cart")
+
+
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tên sp</th>
+                    <th>Số lượng</th>
+                    <th>Khuyến mãi</th>
+                    <th>Tổng</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var i in Model)
+                {
+                    <tr>
+                        <td>
+                            <div>
+                                <div class="col-sm-6">
+                                    <img src=" @i.Product.Image" alt="Alternate Text" style="width:100%" />
+
+                                </div>
+                                <div class="col-sm-9">
+                                    <a href="@Url.Action("index","Details",new{id = i.Product.Id})">
+                                        @{
+                                            string name = i.Product.Name;
+                                        }
+                                        @if (i.Product.Name.Length > 30)
+                                        {
+                                            <i>  @name.Substring(0, 30);</i>
+
+                                            <span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @i.Product.Name;
+                                        }
+                                    </a>
+
+                                </div>
+                                <div class="clearfix"> </div>
+
+                            </div>
+
+                        </td>
+                        <td>@i.Quantity</td>
+                        <td>@i.Product.Sale %</td>
+                        @{ 
+                            float sale = i.Product.Sale.Value;
+                            float prive = i.Product.Price.Value;
+                            float quantity = i.Quantity;
+                            float total = ((((100 - sale) / 100) * prive) * quantity)+20000;
+                            ViewBag.total = total.ToString("N0");
+                            total_payment += total;
+                            ViewBag.total_payment = total_payment.ToString("N0") ;
+                        }
+                      
+                        <td>@ViewBag.total</td>
+                    </tr>
+                }
+
+
+            </tbody>
+
+
+        </table>
+        <div style="width:100%; text-align:right" >
+            <span>
+                Phí vận chuyển cho mỗi mặt hàng là 20.000 vnđ
+            </span>
+        </div>
+        <hr />
+        <div style="
+    text-align:right;
+
+    width:100%;
+    color: #52D0C4;
+    font-size: 1.2em;
+    font-family: 'OleoScript-Regular';
+    font-weight: 400;">
+            Tổng tiền thanh toán  =
+            @ViewBag.total_payment  vnd
+        </div>
+    </div>
+    @*<table>
+
+            <tr>
+
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Giảm giá</th>
+                <th>Phí vận chuyển</th>
+
+
+                <th>Tổng</th>
+                <th>
+                    Công Cụ
+                </th>
+            </tr>
+            @if (Session["CartSession"] == null)
+            {
+                <div class="alert alert-warning text-center">
+                    Giỏ hàng chống
+                </div>
+            }
+            @foreach (var item in Model)
+            {
+
+                float sale = item.Product.Sale.Value;
+                float prive = item.Product.Price.Value;
+                float quantity = item.Quantity;
+                float total = (((100 - sale) / 100) * prive) * quantity;
+                ViewBag.total = total.ToString("N0");
+                total_payment += total;
+                ViewBag.total_payment = total_payment.ToString("N0");
+                <tr>
+                    <td class="ring-in">
+                        <a href="@Url.Action("Index","Details", new{id = item.Product.Id})" class="at-in"><img src="@item.Product.Image" class="img-responsive" alt=""></a>
+                        <div class="sed">
+                            <h5>@item.Product.Name</h5>
+                            <p>(@item.Product.Title) </p>
+
+                        </div>
+                        <div class="clearfix"> </div>
+                    </td>
+                    <td class="check">
+
+                        <input type="number" class="quality_buy" data-id="@item.Product.Id" value="@item.Quantity" style="width:40px;text-align:center;" min="0" max="@item.Product.Quantity"><label>/ @item.Product.Quantity</label>
+
+                    </td>
+                    <td>@item.Product.Price.Value.ToString("N0")</td>
+                    <td>@item.Product.Sale.Value.ToString() %</td>
+                    <td>30.000</td>
+                    <td>@ViewBag.total đ</td>
+                    <td><a href="#" id="btnDeleteId" data-id="@item.Product.Id" class="btn btn-1 btn-danger">Xoá</a></td>
+                </tr>
+            }
+
+
+
+        </table>
+        <hr />
+        <div>
+
+            <div class="col-lg-8">
+                <a href="#" id="btnContinue" class=" to-buy">Mua hàng tiếp</a>
+                <a href="#" id="btnUpdateAll" class=" to-buy">Cập nhật giỏ hàng</a>
+                <a href="#" id="btnDeleteAll" style="background:#d43f3a;" class=" to-buy">Xoá giỏ hàng</a>
+
+                <a href="#" id="btnBayment" class=" to-buy">Thanh thoán</a>
+
+            </div>
+            <div class="col-lg-3  text-center" style="line-height:30px;margin-top:12px">
+                Tổng tiền thanh toán :  @ViewBag.total_payment đ
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>*@
+    <div class="clearfix"> </div>
+</div>
+
+
+@section jsFooter{
+
+    <script src="~/Scripts/AjaxCart.js"></script>
+
+}
+

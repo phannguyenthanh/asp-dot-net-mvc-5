@@ -1,0 +1,96 @@
+﻿@model List<projec6.Cart.ItemCart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    float total_payment = 0;
+}
+
+<div class="check-out">
+    <h1>Giỏ hàng</h1>
+
+    <table>
+
+        <tr>
+
+            <th>Sản phẩm</th>
+            <th>Số lượng</th>
+            <th>Giá</th>
+            <th>Giảm giá</th>
+            <th>Phí vận chuyển</th>
+
+
+            <th>Tổng</th>
+            <th>
+                Công Cụ
+            </th>
+        </tr>
+        @if (Session["CartSession"] == null)
+        {
+            <div class="alert alert-warning text-center">
+                Giỏ hàng chống
+            </div>
+        }
+        @foreach (var item in Model)
+        {
+            
+            float sale = item.Product.Sale.Value;
+            float prive = item.Product.Price.Value;
+            float quantity = item.Quantity;
+            float total = (((100 - sale) / 100) * prive)*quantity;
+            ViewBag.total = total.ToString("N0");
+            total_payment += total;
+            ViewBag.total_payment = total_payment.ToString("N0");
+            <tr>
+                <td class="ring-in">
+                    <a href="@Url.Action("Index","Details", new{id = item.Product.Id})" class="at-in"><img src="@item.Product.Image" class="img-responsive" alt=""></a>
+                    <div class="sed">
+                        <h5>@item.Product.Name</h5>
+                        <p>(@item.Product.Title) </p>
+
+                    </div>
+                    <div class="clearfix"> </div>
+                </td>
+                <td class="check">
+                    
+                    <input type="number" class="quality_buy" data-id="@item.Product.Id" value="@item.Quantity" style="width:40px;text-align:center;" min="0" max="@item.Product.Quantity"><label>/ @item.Product.Quantity</label>
+
+                </td>
+                <td>@item.Product.Price.Value.ToString("N0")</td>
+                <td>@item.Product.Sale.Value.ToString() %</td>
+                <td>30.000</td>
+                <td>@ViewBag.total đ</td>
+                <td><a href="#" id="btnDeleteId" data-id="@item.Product.Id"  class="btn btn-1 btn-danger">Xoá</a></td>
+            </tr>
+        }
+
+ 
+
+    </table>
+    <hr />
+    <div>
+      
+        <div class="col-lg-8">
+            <a href="#" id="btnContinue" class=" to-buy">Mua hàng tiếp</a>
+            <a href="#" id="btnUpdateAll" class=" to-buy">Cập nhật giỏ hàng</a>
+            <a href="#" id="btnDeleteAll" style="background:#d43f3a;" class=" to-buy">Xoá giỏ hàng</a>
+
+            <a href="#" id="btnBayment" class=" to-buy">Thanh thoán</a>
+            <!-- <button id="btnContinue" class=" to-buy">Mua hàng tiếp</button>
+    <button class=" to-buy">Mua hàng tiếp</button>
+    <button class=" to-buy">Mua hàng tiếp</button>
+    <button class=" to-buy">Mua hàng tiếp</button> -->
+        </div>
+        <div class="col-lg-3  text-center" style="line-height:30px;margin-top:12px">
+            Tổng tiền thanh toán :  @ViewBag.total_payment đ
+        </div>
+    
+    <div class="clearfix"> </div>
+    </div>
+   
+</div>
+
+@section jsFooter{
+
+   <script  src="~/Scripts/AjaxCart.js"></script>
+    
+    }

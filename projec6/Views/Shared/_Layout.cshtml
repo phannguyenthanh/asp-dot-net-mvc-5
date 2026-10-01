@@ -1,0 +1,181 @@
+﻿@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - My ASP.NET Application</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    @Html.Partial("~/Views/Shared/Title.cshtml")
+
+    <link href="~/Content/Web/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- <script src="~/Content/Web/js/jquery.min.js"></script> -->
+    <!-- Custom Theme files -->
+    <!--theme-style-->
+    <link href="~/Content/Web/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <!--//theme-style-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Fashion Mania Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- start menu -->
+    <link href="~/Content/Web/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+    @Scripts.Render("~/bundles/jquery")
+  
+ 
+    <script src="~/Content/Admin/ck_e_f/ckeditor/ckeditor.js"></script>
+
+    <script src="~/Content/Admin/ck_e_f/ckfinder/ckfinder.js"></script>
+    <script type="text/javascript" src="~/Content/Web/js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <script src="~/Content/Web/js/simpleCart.min.js"></script>
+    <!-- slide -->
+    <script src="~/Content/Web/js/responsiveslides.min.js"></script>
+    
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    
+</head>
+<body>
+    <!--header-->
+    <div class="header">
+
+        @Html.Partial("~/Views/Shared/Header.cshtml")
+
+
+        <div class="container">
+            <div class="head-top">
+                <div class="col-sm-2 number">
+                    <span><i class="glyphicon glyphicon-phone"></i>085 596 234</span>
+                </div>
+                @Html.Action("Menu", "menu")
+
+                <div class="col-sm-2 search">
+                    <a class="play-icon popup-with-zoom-anim" href="#small-dialog"><i class="glyphicon glyphicon-search"> </i> </a>
+                </div>
+                <div class="clearfix"> </div>
+                <!---pop-up-box---->
+                @*<script type="text/javascript" src="~/Content/Web/js/modernizr.custom.min.js"></script>*@
+                <link href="~/Content/Web/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
+                <script src="~/Content/Web/js/jquery.magnific-popup.js" type="text/javascript"></script>
+                <!---//pop-up-box---->
+                @Html.Partial("~/Views/Shared/seach.cshtml")
+
+                <script>
+                    $(document).ready(function () {
+                        $('.popup-with-zoom-anim').magnificPopup({
+                            type: 'inline',
+                            fixedContentPos: false,
+                            fixedBgPos: true,
+                            overflowY: 'auto',
+                            closeBtnInside: true,
+                            preloader: false,
+                            midClick: true,
+                            removalDelay: 300,
+                            mainClass: 'my-mfp-zoom-in'
+                        });
+
+                    });
+                </script>
+                <!---->
+            </div>
+        </div>
+    </div>
+    <!--banner-->
+
+    @{
+        var url = Request.CurrentExecutionFilePath;
+        ViewBag.url = url;
+    }
+
+    @*@ViewBag.url*@
+
+    @if (url == "/Home/Index")
+    {
+        @Html.Partial("~/Views/Shared/Slider.cshtml")
+    }
+
+
+
+
+    <!--//banner-->
+    <!--content-->
+    <div class="content">
+        <div class="container">
+            @RenderBody()
+
+        </div>
+    </div>
+    <!--//content-->
+    <!--footer-->
+    @Html.Action("Index", "Fooder")
+
+    <!--//footer-->
+    @if (url == "/Register/Create")
+    {
+        <script src="~/Scripts/jquery.validate.min.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    }
+    else
+    {
+        @*@ViewBag.url*@
+    }
+    @RenderSection("jsFooter",required:false)
+</body>
+</html>
+

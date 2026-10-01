@@ -1,0 +1,86 @@
+﻿@model project5.Models.User
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" style="margin-bottom:100px;">
+    <div class="register ">
+        <h1>Thông tin tài khoản</h1>
+        <div class="col-lg-5 col-lg-offset-3">
+            <dl class="dl-horizontal">
+                
+                <dd>
+                    <img src="@Model.Avatar" alt="Alternate Text" />
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.First_name)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.First_name) @Html.DisplayFor(model => model.Last_name)
+                </dd>
+
+              
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+
+
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Sex)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Sex)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Birthday)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Birthday)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Address)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Address)
+                </dd>
+
+
+
+
+
+            
+
+            </dl>
+
+            <p class="text-center">
+                @Html.ActionLink("Chỉnh sửa", "Edit",  new { id = Model.Id },new { @class = "btn btn-1 btn-success"  } ) 
+      
+            </p>
+        </div>
+    </div>
+</div>
+
+       
+       

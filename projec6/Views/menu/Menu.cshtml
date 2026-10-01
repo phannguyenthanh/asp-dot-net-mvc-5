@@ -1,0 +1,133 @@
+﻿@model IEnumerable<project5.Models.Category>
+<div class="col-sm-8 h_menu4">
+    <ul class="memenu skyblue">
+        <li class=" grid"><a href="@Url.Action("Index","Home")">Home</a></li>
+        <li>
+            <a href="#">Men</a>
+            <div class="mepanel">
+                <div class="row">
+                    @*<div class="col1">
+                            <div class="h_nav">
+                                <h4>All Clothing</h4>
+                                <ul>
+                                    <li><a href="products.html">Shirts</a></li>
+                                    <li><a href="products.html">Sports Wear</a></li>
+                                    <li><a href="products.html">Shorts</a></li>
+                                    <li><a href="products.html">Suits & Blazers</a></li>
+                                    <li><a href="products.html">Formal Shirts</a></li>
+                                    <li><a href="products.html">Sweatpants</a></li>
+                                    <li><a href="products.html">Swimwear</a></li>
+                                    <li><a href="products.html">Trousers & Chinos</a></li>
+                                    <li><a href="products.html">T-Shirts</a></li>
+                                    <li><a href="products.html">Underwear & Socks</a></li>
+
+                                </ul>
+                            </div>
+                        </div>*@
+                    <div class="col1">
+                        <div class="h_nav">
+                            <h4>Footwear</h4>
+                            <ul>
+                                @foreach (var i in Model)
+                                {
+                                    if (i.Sex.ToString() == "Nam" || i.Sex == project5.Models.sexxx.Nam_và_Nữ)
+                                    {
+                                <li>
+                                    @*<a href="@Url.Action("Index","Category", new( Id = i.Id))">@i.Name</a*>*@
+
+                                    <a href="@Url.Action("Index","Category", new {Id= i.Id })">@i.Name</a>
+
+                                </li>
+                                    }
+                                }
+
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    @*<div class="col1">
+                            <div class="h_nav">
+                                <h4>Popular Brands</h4>
+                                <ul>
+                                    <li><a href="products.html">Levis</a></li>
+                                    <li><a href="products.html">Persol</a></li>
+                                    <li><a href="products.html">Nike</a></li>
+                                    <li><a href="products.html">Edwin</a></li>
+                                    <li><a href="products.html">New Balance</a></li>
+                                    <li><a href="products.html">Jack & Jones</a></li>
+                                    <li><a href="products.html">Paul Smith</a></li>
+                                    <li><a href="products.html">Ray-Ban</a></li>
+                                    <li><a href="products.html">Wood Wood</a></li>
+                                </ul>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </li>
+        <li class="grid">
+            <a href="#">	Women</a>
+            <div class="mepanel">
+                <div class="row">
+                    @*<div class="col1">
+                            <div class="h_nav">
+                                <h4>All Clothing</h4>
+                                <ul>
+                                    <li><a href="products.html">Shirts & Tops</a></li>
+                                    <li><a href="products.html">Sports Wear</a></li>
+                                    <li><a href="products.html">Kurtas & Kurties</a></li>
+                                    <li><a href="products.html">Suits & Blazers</a></li>
+                                    <li><a href="products.html">Sarees</a></li>
+                                    <li><a href="products.html">Sweatpants</a></li>
+                                    <li><a href="products.html">Swimwear</a></li>
+                                    <li><a href="products.html">Night-Suits</a></li>
+                                    <li><a href="products.html">T-Shirts</a></li>
+                                    <li><a href="products.html">Jeans</a></li>
+
+                                </ul>
+                            </div>
+                        </div>*@
+                    <div class="col1">
+                        <div class="h_nav">
+                            <h4>Footwear</h4>
+                            <ul>
+                                @foreach (var i in Model)
+                                {
+                                    if (i.Sex.ToString() == "Nữ" || i.Sex == project5.Models.sexxx.Nam_và_Nữ)
+                                    {
+                                <li>
+                                    @*@Html.ActionLink(i.Name, "Index", "Category", new { id = i.Id })*@
+                                    @*<a href="/Category/Index?Id=@i.Id">@i.Name</a>*@
+                                    <a href="@Url.Action("Index","Category", new {Id= i.Id })">@i.Name</a>
+                                    @*<a href="products.html">@i.Name | @i.Sex</a>*@
+                                </li>
+                                    }
+                                }
+
+
+                            </ul>
+                        </div>
+                    </div>
+                    @*<div class="col1">
+                            <div class="h_nav">
+                                <h4>Popular Brands</h4>
+                                <ul>
+                                    <li><a href="products.html">Levis</a></li>
+                                    <li><a href="products.html">Persol</a></li>
+                                    <li><a href="products.html">Nike</a></li>
+                                    <li><a href="products.html">Edwin</a></li>
+                                    <li><a href="products.html">New Balance</a></li>
+                                    <li><a href="products.html">Jack & Jones</a></li>
+                                    <li><a href="products.html">Paul Smith</a></li>
+                                    <li><a href="products.html">Ray-Ban</a></li>
+                                    <li><a href="products.html">Wood Wood</a></li>
+                                </ul>
+                            </div>
+                        </div>*@
+                </div>
+            </div>
+        </li>
+        <li><a href="typo.html">Blog</a></li>
+        <li><a class="color6" href="contact.html">Conact</a></li>
+    </ul>
+</div>

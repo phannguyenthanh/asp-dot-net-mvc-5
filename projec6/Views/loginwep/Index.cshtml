@@ -1,0 +1,60 @@
+﻿
+@model project5.Models.User
+
+@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="account">
+    <div class="container">
+        <h1>Account</h1>
+        <div class="account_grid">
+            <div class="col-md-6 login-right">
+
+
+                @using (Html.BeginForm("Check_login", "loginwep", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    @*<span>Email Address</span>
+
+            @Html.TextBoxFor(Model => Model.Email)
+            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            <span>Password</span>
+
+            @Html.PasswordFor(Model => Model.Passwold)
+            @Html.ValidationMessageFor(model => model.Passwold, "", new { @class = "text-danger" })*@
+                    <span>Email Address</span>
+                    @*<input type="text" class="input_seach" name="Email">*@
+                    @Html.TextBoxFor(Model => Model.Email)
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger", @style="color: red"})
+
+                    <span>Password</span>
+                    @*<input type="password" class="input_seach" name="Passwold" style="    border: 1px solid #bbb;
+            outline-color: #52d0c4;
+            width: 96%;
+            font-size: 0.9em;
+            padding: 10px;
+            margin: 0.5em 0;" >*@
+                    @Html.PasswordFor(Model => Model.Passwold , new{ @style= " border: 1px solid #bbb; outline - color: #52d0c4;  width: 96%; font - size: 0.9em; padding: 10px;margin: 0.5em 0; "})
+                    @Html.ValidationMessageFor(model => model.Passwold, "", new { @class = "text-danger" , @style = "color: red"})
+                    <div class="word-in">
+
+                        <input type="submit" value="Login">
+                        @*<button type="submit" class="btn btn-primary btn-block btn-flat">Đăng Nhập</button>*@
+                    </div>
+                }
+
+            </div>
+            <div class="col-md-6 login-left">
+                <h4>NEW CUSTOMERS</h4>
+                <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                <a class="acount-btn" href="@Url.Action("Create","Register")">Tạo tài khoản mới</a>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+

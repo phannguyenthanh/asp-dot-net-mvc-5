@@ -1,0 +1,292 @@
+﻿@model project5.Models.User
+
+@{
+    /**/
+
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<h2>@ViewBag.Name </h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.First_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.First_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.First_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Last_name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Last_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Last_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Passwold, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Passwold, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Passwold, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Passwold2, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.Passwold2, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Passwold2, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+                @Html.EnumDropDownListFor(model => model.Sex, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-3">
+
+                <input class="form-control text-box single-line " data-val="true" data-val-date="The field Ngày sinh must be a date." data-val-required=" Bạn chưa nhập ngày sinh !" id="Birthday" name="Birthday" type="date" value="">
+                @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-5">
+                @Html.EditorFor(model => model.Avatar, new { htmlAttributes = new { @class = "form-control" } })
+
+                @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-lg-4 col-lg-5">
+                <input type="button" name="image" id="image" class="col-lg-1" value="..." />
+                <script>
+                    $("#image").click(function () {
+                        var finder = new CKFinder();
+                        finder.selectActionFunction = function (fileUrl) {
+                            //lấy file ảnh cuối cùng
+                            //fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                            $("#Avatar").val(fileUrl);
+                        }; finder.popup();
+                    });
+                </script>
+
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Access, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-3">
+                    @Html.EnumDropDownListFor(model => model.Access, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Access, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.CheckBoxFor(model => model.Status, new { @checked = true, Style = "margin-left: 0px" })
+                        @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+        @*@Html.ValidationMessageFor(model => model.Access, "false", new { @class = "text-danger" })
+            @Html.ValidationMessageFor(model => model.Status, "true", new { @class = "text-danger" })*@
+
+        @*<div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+<style>
+    .input_form {
+        border: 1px solid #EEE;
+        outline-color: #52D0C4;
+        width: 100%;
+        font-size: 1em;
+        padding: 0.5em;
+        margin: 0.5em 0;
+    }
+</style>
+
+    <div class="container">
+        <div class="register">
+            <h1>Register</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="col-md-6  register-top-grid">
+
+                    <div class="mation">
+
+
+                        <span>@Html.LabelFor(model => model.First_name, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        @Html.EditorFor(model => model.First_name, new { @class = "input_form" })
+                        @Html.ValidationMessageFor(model => model.First_name, "", new { @class = "text-danger" })
+
+
+
+
+                        <span> @Html.LabelFor(model => model.Last_name, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        @Html.EditorFor(model => model.Last_name)
+                        @Html.ValidationMessageFor(model => model.Last_name, "", new { @class = "text-danger" })
+
+
+
+
+                        <span>@Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "input_form" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+
+
+                        <span> @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        @Html.EditorFor(model => model.Address)
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+
+                        <span>@Html.LabelFor(model => model.Birthday, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        <input class=" input_form  " data-val="true" data-val-date="The field Ngày sinh must be a date." data-val-required=" Bạn chưa nhập ngày sinh !" id="Birthday" name="Birthday" type="date" value="">
+                        @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
+
+
+
+                        <span>@Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        @Html.EditorFor(model => model.Phone)
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+
+
+
+                        <span>@Html.LabelFor(model => model.Sex, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        @Html.EnumDropDownListFor(model => model.Sex, htmlAttributes: new { @class = "input_form" })
+                        @Html.ValidationMessageFor(model => model.Sex, "", new { @class = "text-danger" })
+
+
+
+                        <span>@Html.LabelFor(model => model.Avatar, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        <div class="" style="width:100%;">
+                            <div class="col-md-5">
+                                @Html.EditorFor(model => model.Avatar)
+
+                                @Html.ValidationMessageFor(model => model.Avatar, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-lg-4 col-lg-5">
+                                <input type="button" name="image" id="image" class="col-lg-1" value="..." style="margin-top:15px;" />
+
+                                <script>
+                                         $("#image").click(function () {
+                                                var finder = new CKFinder();
+                                                 finder.selectActionFunction = function (fileUrl) {
+                                                  //lấy file ảnh cuối cùng
+                                                 //fileUrl = fileUrl.substring(fileUrl.lastIndexOf("/") + 1);
+                                                     $("#Avatar").val(fileUrl);
+                                             }; finder.popup();
+                                             });
+                                </script>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <div class="clearfix"> </div>
+                    @*<a class="news-letter" href="#">
+                    <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up</label>
+                </a>*@
+                </div>
+                <div class=" col-md-6 register-bottom-grid">
+
+                    <div class="mation">
+
+                        <span>@Html.LabelFor(model => model.Passwold, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+                        @Html.PasswordFor(model => model.Passwold, new { @class = "input_form" })
+                        @Html.ValidationMessageFor(model => model.Passwold, "", new { @class = "text-danger" })
+
+
+
+                        <span>@Html.LabelFor(model => model.Passwold2, htmlAttributes: new { @class = "control-label col-md-2" })</span>
+
+                        @Html.PasswordFor(model => model.Passwold2, new { @class = "input_form" })
+                        @Html.ValidationMessageFor(model => model.Passwold2, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+
+
+                <div class="register-but">
+
+                    <input type="submit" class="acount-btn" value="Đăng ký">
+                    <div class="clearfix"> </div>
+
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@
+
+
+
+
+
